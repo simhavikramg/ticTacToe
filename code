@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outerContainer {
+            width: 400px;
+            height: 250px;
+            align-items: center;
+            margin: auto;
+            background-color: bisque;
+        }
+
+        .innerContainer {
+            width: 80%;
+            height: 240px;
+            margin: auto;
+            /* margin-top: 10px; */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            /* background-color: aquamarine; */
+        }
+
+        .first {
+            display: flex;
+            flex-direction: row;
+            /* justify-content: space-evenly; */
+            margin-top: 7px;
+        }
+
+        .second {
+            display: flex;
+            flex-direction: row;
+            /* justify-content: space-evenly; */
+        }
+
+        .third {
+            display: flex;
+            flex-direction: row;
+            /* justify-content: space-evenly; */
+        }
+
+        .innerContainer button {
+            width: 30%;
+            height: 70px;
+            margin: 3px;
+            border: none;
+            border-radius: 5px;
+            background-color: blueviolet;
+        }
+
+        /* button ::hover{
+            background-color: blue;
+        } */
+        /* button :hover{
+            background-color: blue;
+        } */
+        /* button:hover{
+            background-color: crimson;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="outerContainer">
+        <div class="innerContainer">
+            <div class="first">
+                <button class="one" id="one">?</button>
+                <button class="two" id="two">?</button>
+                <button class="three" id="three">?</button>
+            </div>
+            <div class="second">
+                <button class="four" id="four">?</button>
+                <button class="five" id="five">?</button>
+                <button class="six" id="six">?</button>
+            </div>
+            <div class="third">
+                <button class="seven" id="seven">?</button>
+                <button class="eight" id="eight">?</button>
+                <button class="nine" id="nine">?</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var c = "";
+    var clicked = "";
+    // var noRepeat = true;
+    // console.log(document.querySelector(".one"));
+    // var len=c.length;
+    // console.log(c.length%2===0, c.length<=8, c.length>=0);
+    if (clicked.includes("1")) {
+        document.getElementById("one").disabled = true;
+    }
+    else if (clicked.includes("2")) {
+        document.getElementById("one").disabled = true;
+    }
+    else if (clicked.includes("3")) {
+        document.getElementById("one").disabled = true;
+    }
+    else if (clicked.includes("4")) {
+        document.getElementById("one").disabled = true;
+    }
+    else if (clicked.includes("5")) {
+        document.getElementById("one").disabled = true;
+    }
+    else if (clicked.includes("6")) {
+        document.getElementById("one").disabled = true;
+    }
+    else if (clicked.includes("7")) {
+        document.getElementById("one").disabled = true;
+    }
+    else if (clicked.includes("8")) {
+        document.getElementById("one").disabled = true;
+    }
+    else if (clicked.includes("9")) {
+        document.getElementById("one").disabled = true;
+    }
+    document.getElementById("one").addEventListener("click", (c) => {
+        // console.log("This is c"+this.c);
+        let k = "1";
+        if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 === 0 && this.clicked.includes(k) != true) {
+            // console.log("x");
+            this.c = this.c + "X";
+            this.clicked = this.clicked + k;
+            console.log(this.c, this.c.length);
+            // console.log(this.c[this.c.length-1]);
+            console.log(c[0]);
+            console.log(this.clicked);
+            document.querySelector(".one").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+
+        }
+        else if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 != 0 && this.clicked.includes(k) != true) {
+            // console.log("O");
+            this.c = this.c + "O";
+            this.clicked = this.clicked + k;
+            console.log(this.c, this.c.length);
+            console.log(this.clicked);
+            document.querySelector(".one").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+        }
+        // else {
+        //     if (this.clicked.includes(k) === true) {
+        //         this.clicked = this.clicked;
+        //         this.c = this.c;
+        //     }
+        // }
+    })
+    document.getElementById("two").addEventListener("click", (c) => {
+        let k = "2";
+        if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 === 0 && this.clicked.includes(k) != true) {
+            // console.log("x");
+            this.c = this.c + "X";
+            console.log(this.c, this.c.length);
+            this.clicked = this.clicked + k;
+            console.log(this.clicked);
+            document.querySelector(".two").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+        }
+        else if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 != 0 && this.clicked.includes(k) != true) {
+            // console.log("O");
+            this.c = this.c + "O";
+            console.log(this.c, this.c.length);
+            this.clicked = this.clicked + k;
+            console.log(this.clicked);
+            document.querySelector(".two").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+        }
+        // else{
+        //     this.c="";
+        //     this.clicked="";
+        // }
+    })
+    document.getElementById("three").addEventListener("click", (c) => {
+        let k = "3";
+        if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 === 0 && this.clicked.includes(k) != true) {
+            // console.log("x");
+            this.c = this.c + "X";
+            console.log(this.c, this.c.length);
+            this.clicked = this.clicked + k;
+            console.log(this.clicked);
+            document.querySelector(".three").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+        }
+        else if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 != 0 && this.clicked.includes(k) != true) {
+            // console.log("O");
+            this.c = this.c + "O";
+            console.log(this.c, this.c.length);
+            this.clicked = this.clicked + k;
+            console.log(this.clicked);
+            document.querySelector(".three").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+        }
+        // else{
+        //     this.c="";
+        //     this.clicked="";
+        // }
+    })
+    document.getElementById("four").addEventListener("click", (c) => {
+        let k = "4";
+        if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 === 0 && this.clicked.includes(k) != true) {
+            // console.log("x");
+            this.c = this.c + "X";
+            console.log(this.c, this.c.length);
+            this.clicked = this.clicked + k;
+            console.log(this.clicked);
+            document.querySelector(".four").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+        }
+        else if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 != 0 && this.clicked.includes(k) != true) {
+            // console.log("O");
+            this.c = this.c + "O";
+            console.log(this.c, this.c.length);
+            this.clicked = this.clicked + k;
+            console.log(this.clicked);
+            document.querySelector(".four").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+        }
+        // else{
+        //     this.c="";
+        //     this.clicked="";
+        // }
+    })
+    document.getElementById("five").addEventListener("click", (c) => {
+        let k = "5";
+        if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 === 0 && this.clicked.includes(k) != true) {
+            // console.log("x");
+            this.c = this.c + "X";
+            console.log(this.c, this.c.length);
+            this.clicked = this.clicked + k;
+            console.log(this.clicked);
+            document.querySelector(".five").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+        }
+        else if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 != 0 && this.clicked.includes(k) != true) {
+            // console.log("O");
+            this.c = this.c + "O";
+            console.log(this.c, this.c.length);
+            this.clicked = this.clicked + k;
+            console.log(this.clicked);
+            document.querySelector(".five").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+        }
+        // else{
+        //     this.c="";
+        //     this.clicked="";
+        // }
+    })
+    document.getElementById("six").addEventListener("click", (c) => {
+        let k = "6";
+        if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 === 0 && this.clicked.includes(k) != true) {
+            // console.log("x");
+            this.c = this.c + "X";
+            console.log(this.c, this.c.length);
+            this.clicked = this.clicked + k;
+            console.log(this.clicked);
+            document.querySelector(".six").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+        }
+        else if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 != 0 && this.clicked.includes(k) != true) {
+            // console.log("O");
+            this.c = this.c + "O";
+            console.log(this.c, this.c.length);
+            this.clicked = this.clicked + k;
+            console.log(this.clicked);
+            document.querySelector(".six").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+        }
+        // else{
+        //     this.c="";
+        //     this.clicked="";
+        // }
+    })
+    document.getElementById("seven").addEventListener("click", (c) => {
+        let k = "7";
+        if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 === 0 && this.clicked.includes(k) != true) {
+            // console.log("x");
+            this.c = this.c + "X";
+            console.log(this.c, this.c.length);
+            this.clicked = this.clicked + k;
+            console.log(this.clicked);
+            document.querySelector(".seven").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+        }
+        else if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 != 0 && this.clicked.includes(k) != true) {
+            // console.log("O");
+            this.c = this.c + "O";
+            console.log(this.c, this.c.length);
+            this.clicked = this.clicked + k;
+            console.log(this.clicked);
+            document.querySelector(".seven").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+        }
+        // else{
+        //     this.c="";
+        //     this.clicked="";
+        // }
+    })
+    document.getElementById("eight").addEventListener("click", (c) => {
+        let k = "8";
+        if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 === 0 && this.clicked.includes(k) != true) {
+            // console.log("x");
+            this.c = this.c + "X";
+            console.log(this.c, this.c.length);
+            this.clicked = this.clicked + k;
+            console.log(this.clicked);
+            document.querySelector(".eight").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+        }
+        else if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 != 0 && this.clicked.includes(k) != true) {
+            // console.log("O");
+            this.c = this.c + "O";
+            console.log(this.c, this.c.length);
+            this.clicked = this.clicked + k;
+            console.log(this.clicked);
+            document.querySelector(".eight").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+        }
+        // else{
+        //     this.c="";
+        //     this.clicked="";
+        // }
+    })
+    document.getElementById("nine").addEventListener("click", (c) => {
+        let k = "9";
+        if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 === 0 && this.clicked.includes(k) != true) {
+            // console.log("x");
+            this.c = this.c + "X";
+            console.log(this.c, this.c.length);
+            this.clicked = this.clicked + k;
+            console.log(this.clicked);
+            document.querySelector(".nine").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+        }
+        else if (this.c.length >= 0 && this.c.length <= 8 && this.c.length % 2 != 0 && this.clicked.includes(k) != true) {
+            // console.log("O");
+            this.c = this.c + "O";
+            console.log(this.c, this.c.length);
+            this.clicked = this.clicked + k;
+            console.log(this.clicked);
+            document.querySelector(".nine").textContent = `${this.c[this.c.length - 1]}`;
+            if (this.c.length > 2 && ((this.c[0] != "" && this.c[1] != "" && this.c[2] != "" && this.c[0] === this.c[1] && this.c[0] === this.c[2]) ||
+                (this.c[0] != "" && this.c[3] != "" && this.c[6] != "" && this.c[0] === this.c[3] && this.c[0] === this.c[6]) ||
+                (this.c[1] != "" && this.c[4] != "" && this.c[7] != "" && this.c[1] === this.c[4] && this.c[1] === this.c[7]) ||
+                (this.c[2] != "" && this.c[5] != "" && this.c[8] != "" && this.c[2] === this.c[5] && this.c[2] === this.c[8]) ||
+                (this.c[4] != "" && this.c[3] != "" && this.c[5] != "" && this.c[3] === this.c[4] && this.c[3] === this.c[5]) ||
+                (this.c[6] != "" && this.c[7] != "" && this.c[8] != "" && this.c[6] === this.c[7] && this.c[6] === this.c[8]) ||
+                (this.c[0] != "" && this.c[4] != "" && this.c[8] != "" && this.c[0] === this.c[4] && this.c[0] === this.c[8]) ||
+                (this.c[2] != "" && this.c[4] != "" && this.c[6] != "" && this.c[2] === this.c[4] && this.c[2] === this.c[6]))) {
+                if (this.c.length % 2 != 0) {
+                    console.log("Player One Wins");
+                }
+                else {
+                    console.log("Player Two Wins");
+                }
+            }
+        }
+        // else{
+        //     this.c="";
+        //     this.clicked="";
+        // }
+    })
+</script>
+
+</html>
